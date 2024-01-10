@@ -1,1 +1,0 @@
-from .numarray import factorial

@@ -5,11 +5,12 @@ demommath.egg-info/PKG-INFO
 demommath.egg-info/SOURCES.txt
 demommath.egg-info/dependency_links.txt
 demommath.egg-info/entry_points.txt
+demommath.egg-info/requires.txt
 demommath.egg-info/top_level.txt
-demommath/adarray/__init__.py
-demommath/adarray/numarray.py
 demommath/addsub/__init__.py
 demommath/addsub/addas.py
+demommath/factorials/__init__.py
+demommath/factorials/fact.py
 demommath/multidiv/__init__.py
 demommath/multidiv/md.py
 demommath/odd_even/__init__.py

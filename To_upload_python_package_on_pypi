@@ -10,20 +10,7 @@ pip install twine
 
 ### 2. Prepare Your Package:
 
-Ensure your Python package is correctly structured and contains the necessary files, such as `setup.py` and `README.md`. Here is a minimal `setup.py` example:
-
-```python
-from setuptools import setup, find_packages
-
-setup(
-    name='your_package_name',
-    version='0.1.0',
-    packages=find_packages(),
-    install_requires=[
-        # List your package dependencies here
-    ],
-)
-```
+Ensure your Python package is correctly structured and contains the necessary files, such as `setup.py` and `README.md`.
 
 ### 3. Create a Source Distribution:
 
