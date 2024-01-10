@@ -1,4 +1,0 @@
-numpy
-configparse
-struct
-netCDF4

@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name='demommath',
-    version='0.1.3',
+    version='0.1.4',
     packages=find_packages(),
     install_requires=[
-       'numpy','configparse','struct','netCDF4' # List your dependencies here
+        # List your dependencies here
     ],
     entry_points={
         'console_scripts': [

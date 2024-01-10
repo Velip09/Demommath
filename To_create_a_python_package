@@ -87,7 +87,7 @@ This Step creates build and dist directories.
 
 To install locally,
 
-pip install dist/demommath-0.1.3.tar.gz
+pip install dist/demommath-0.1.4.tar.gz
 
 ```
 
