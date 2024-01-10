@@ -1,0 +1,31 @@
+To create a personal access token on GitHub, follow these steps:
+
+1. **Login to GitHub:**
+   Make sure you are logged in to your GitHub account.
+
+2. **Access Personal Access Tokens Page:**
+   - Click on your profile picture in the top right corner.
+   - Select "Settings" from the dropdown menu.
+   - In the left sidebar, click on "Developer settings."
+
+3. **Generate Token:**
+   - In the Developer settings sidebar, click on "Personal access tokens."
+   - Click the "Generate token" button.
+
+4. **Configure Token:**
+   - Enter a name for your token in the "Note" field. Choose a descriptive name that helps you identify the purpose of the token.
+   - Choose the desired scopes for your token. Scopes define the access level your token will have. Be cautious and only select the scopes that are necessary for your use case.
+
+5. **Generate Token:**
+   - Scroll down and click the "Generate token" button at the bottom of the page.
+
+6. **Copy Token:**
+   - After generating the token, you will see it displayed on the screen. Copy the token immediately.
+   - **Note: Treat your token like a password. Do not share it publicly, and store it securely.**
+
+7. **Use Token:**
+   - You can now use this token as a password when accessing GitHub via Git or other tools that require authentication.
+
+Remember, once you leave the page, you won't be able to see the token again. If you lose it, you'll need to regenerate a new one.
+
+Also, be cautious with the scopes you grant to your token. Only give it the permissions it needs for your specific use case to enhance the security of your account.
