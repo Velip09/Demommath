@@ -4,6 +4,8 @@ setup(
     name='demommath',
     version='0.1.5',
     packages=find_packages(),
+    long_description_content_type="text/markdown",
+    long_description=open("README.md", "r", encoding="utf-8").read(),
     install_requires=[
         # List your dependencies here
     ],

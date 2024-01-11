@@ -16,3 +16,6 @@ demommath/odd_even/__init__.py
 demommath/odd_even/evod.py
 demommath/prime_num/__init__.py
 demommath/prime_num/prime_no.py
+demommath/sumarray/__init__.py
+demommath/sumarray/addarray.py
+demommath/sumarray/testing.py
