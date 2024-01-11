@@ -7,6 +7,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=open("README.md", "r", encoding="utf-8").read(),
     install_requires=[
+    'numpy'
         # List your dependencies here
     ],
     entry_points={
