@@ -24,4 +24,4 @@ jobs:
     - name: Build and upload to Anaconda
       run: |
         conda build .
-        anaconda -t $ANACONDA_TOKEN upload --force -u velip09 -l main /opt/conda/conda-bld/linux-64/*.tar.bz2
+        anaconda -t $CONDA_API_TOKEN upload --force -u velip09 -l main /opt/conda/conda-bld/linux-64/*.tar.bz2
