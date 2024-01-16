@@ -1,10 +1,10 @@
 package:
   name: demommath
-  version: 0.1.6
+  version: 0.1.7
 
 source:
   git_url: https://github.com/Velip09/demommath.git
-  git_tag: 0.1.6  # Replace with the appropriate tag or commit hash
+  git_tag: 0.1.7  # Replace with the appropriate tag or commit hash
 
 build:
   number: 0
