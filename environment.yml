@@ -3,7 +3,7 @@
 #   $ conda env create -f environment.yml  # `mamba` works too for this command
 #   $ conda activate demommath
 #
-name: demommath
+name: demommath1
 channels:
   - velip09
 dependencies:
