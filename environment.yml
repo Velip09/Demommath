@@ -9,7 +9,6 @@ channels:
 dependencies:
   - python>=3.10 #need to pin to avoid issues with builds
   - cython>=3.0
-  - compilers
   - setuptools
   - pkg-config
   - meson-python
@@ -20,5 +19,4 @@ dependencies:
   - pytest
   - pytest-cov
   - pytest-xdist
-  - hypothesis]
   - numpy
