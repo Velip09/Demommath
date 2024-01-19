@@ -2,7 +2,7 @@ pin_compatible: False
 
 package:
   name: demommath
-  version: 0.2.4
+  version: 0.1.8
 
 source:
   path: .
@@ -13,11 +13,11 @@ build:
 
 requirements:
   build:
-   - python >=3.6
+   - python >=3.10
    - setuptools
    - numpy 
   run:
-    - python >=3.6
+    - python >=3.10
     - numpy 
 test:
   imports:
