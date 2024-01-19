@@ -1,21 +1,25 @@
+pin_compatible: False
+
 package:
   name: demommath
-  version: 0.1.7
+  version: 0.2.4
 
 source:
   path: .
 
-build:
+build: 
   number: 0
   script: python -m pip install . --no-deps -vv
 
 requirements:
   build:
-    - python
+   - python >=3.6
+   - setuptools
+   - numpy 
   run:
-    - python
-    - numpy
-
+    - python >=3.6
+    - numpy 
 test:
   imports:
     - demommath
+
