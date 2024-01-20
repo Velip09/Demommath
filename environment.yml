@@ -7,7 +7,8 @@ name: demommath1
 channels:
   - velip09
   - conda-forge
-  - default
+  - defaults
+  - local
 dependencies:
   - python>=3.10 #need to pin to avoid issues with builds
   - cython>=3.0
