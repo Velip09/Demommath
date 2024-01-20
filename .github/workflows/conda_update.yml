@@ -24,7 +24,7 @@ jobs:
     - name: Set up Anaconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        activate-environment: demommath1
+        activate-environment: demommath2
         environment-file: environment.yml
         channels: defaults
     
