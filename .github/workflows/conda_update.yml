@@ -1,46 +1,31 @@
-name: Python Package CI
+name: Conda Build and Upload
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        python-version: [3.10, 3.11]
-
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Update conda and conda-build
-      run: |
-        conda install -c conda-forge conda conda-build
 
-
-    - name: Set up Anaconda
+    - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        activate-environment: demommath1
+        python-version: 3.10  # Adjust the Python version as needed
         environment-file: environment.yml
-    
 
-    - name: Install Dependencies
+    - name: Build and upload to Anaconda.org
       run: |
-        conda install --yes python=$PYTHON_VERSION
-
-    - name: Build and Publish Package
-      run: |
-        conda install conda-build
-        conda build . --output-folder conda-bld
+        conda build .
         conda install -y --use-local demommath
         conda install -y anaconda-client
-        anaconda -t ${{ secrets.CONDA_PASSWORD }} upload --user velip09 --label main --skip-existing conda-bld/linux-64/*.tar.bz2
-    - name: Debug Event and Ref
-      run: |
-           echo "Event Name: ${{ github.event_name }}"
-           echo "Ref: ${{ github.ref }}"
-
+        anaconda login --username ${{ secrets.CONDA_USERNAME }} --password ${{ secrets.CONDA_PASSWORD }}
+        anaconda upload -u velip09 /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.bz2
+      env:
+        ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
+        ANACONDA_TOKEN: ${{ secrets.CONDA_PASSWORD }}
