@@ -45,5 +45,5 @@ jobs:
         conda install -y conda-verify
         conda config --set anaconda_upload yes
         anaconda login --username ${{ secrets.CONDA_USERNAME }} --password ${{ secrets.CONDA_PASSWORD }}
-        anaconda upload -c velip09 --force /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.
+        anaconda upload /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.
         
