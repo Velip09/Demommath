@@ -33,7 +33,6 @@ jobs:
         conda install --yes python=$PYTHON_VERSION
 
     - name: Build and Publish Package
-      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
       run: |
         conda install conda-build
         conda build . --output-folder conda-bld
