@@ -17,6 +17,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         python-version: 3.10  # Adjust the Python version as needed
+        activate-environment: demommath1
         environment-file: environment.yml
 
     - name: Build and upload to Anaconda.org
