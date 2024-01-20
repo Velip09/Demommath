@@ -26,6 +26,7 @@ jobs:
       with:
         activate-environment: demommath1
         environment-file: environment.yml
+        channels: velip09,local,conda-forge,defaults
     
 
     - name: Install Dependencies
