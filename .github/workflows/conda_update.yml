@@ -36,6 +36,8 @@ jobs:
       run: |
         conda install conda-build
         conda build . --output-folder conda-bld
+        conda install -y --use-local demommath
+        conda install -y anaconda-client
         anaconda -t ${{ secrets.CONDA_PASSWORD }} upload --user velip09 --label main --skip-existing conda-bld/linux-64/*.tar.bz2
     - name: Debug Event and Ref
       run: |
