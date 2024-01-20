@@ -39,7 +39,7 @@ jobs:
         conda install -y --use-local demommath
         conda install -y anaconda-client
         anaconda login --username ${{ secrets.CONDA_USERNAME }} --password ${{ secrets.CONDA_PASSWORD }}
-        anaconda upload -u velip09 /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.bz2
+        anaconda upload -u velip09 -c velip09 --force /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.bz2
       env:
         ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
         ANACONDA_TOKEN: ${{ secrets.CONDA_PASSWORD }}
