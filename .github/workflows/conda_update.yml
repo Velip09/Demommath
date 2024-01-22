@@ -43,6 +43,9 @@ jobs:
         conda install -y --use-local demommath
         conda install -y anaconda-client
         conda install -y conda-verify
+        conda index /usr/share/miniconda/conda-bld
+        conda config --show channels
+        conda config --show-sources
         conda config --remove channels cond-forge
         conda config --remove channels local
         anaconda login
