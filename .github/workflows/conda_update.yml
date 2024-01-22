@@ -39,8 +39,9 @@ jobs:
     - name: Build Package
       run: |
         conda install conda-build
-        conda build .
+        conda install -y anaconda-client
         conda install -y conda-verify
+        conda build . --output-folder conda-bld
           
     - name: Upload conda package
       if: |
