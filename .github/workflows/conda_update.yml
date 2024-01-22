@@ -36,7 +36,7 @@ jobs:
     - name: Display Conda Configuration
       run: conda config --show
 
-    - name: Build and Publish Package
+    - name: Build Package
       run: |
         conda install conda-build
         conda build . --output-folder conda-bld
@@ -44,15 +44,17 @@ jobs:
         conda install -y anaconda-client
         conda install -y conda-verify
         anaconda login
-        env:
-          ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
-          ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
-        conda config --remove-key default_channels
-        conda config --remove-key local
-        conda config --remove-key conda-forge
-        conda install --freeze-installed conda-token
-        conda token set CONDA_API_TOKEN
-        anaconda upload ${{ secrets.CONDA_API_TOKEN }}
-          conda-bld/linux-64/demommath-*.tar.bz2
-        conda config --set anaconda_upload yes
-        
+      env:
+        ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
+        ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
+          
+    - name: Upload conda package
+      if: |
+        github.event_name == 'push'
+        && github.ref == 'refs/heads/main'
+      env:
+        ANACONDA_API_TOKEN: ${{ secrets.CONDA_API_TOKEN }}
+        run: |
+          # install anaconda for upload
+          conda install -c conda-forge anaconda-client
+          anaconda upload --label dev noarch/*.tar.bz2
