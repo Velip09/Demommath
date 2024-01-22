@@ -40,14 +40,11 @@ jobs:
         conda install -y conda-verify
         conda build . --output-folder conda-bld
           
-    - name: Anaconda Login
-      run: |
-        anaconda login
+    - name: Upload to PyPI
+      if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags')
       env:
         ANACONDA_USERNAME: __token__
-        ANACONDA_API_TOKEN: ${{ secrets.CONDA_API_TOKEN }}
-        
-    - name: Upload package
-      run: |
-        # install anaconda for upload
-        anaconda upload --label dev conda-bld/noarch/*.tar.bz2
+        ANACONDA_PASSWORD: ${{ secrets.CONDA_API_TOKEN }}
+        run: |
+          anaconda login
+          anaconda upload --label dev noarch/*.tar.bz2
