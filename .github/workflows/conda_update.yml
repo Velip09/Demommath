@@ -43,16 +43,16 @@ jobs:
         conda install -y --use-local demommath
         conda install -y anaconda-client
         conda install -y conda-verify
-        conda index /usr/share/miniconda/conda-bld
-        conda config --show channels
-        conda config --show-sources
-        conda config --remove channels cond-forge
-        conda config --remove channels local
         anaconda login
         env:
           ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
           ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
-        anaconda upload \
+        conda config --remove-key default_channels
+        conda config --remove-key local
+        conda config --remove-key conda-forge
+        conda install --freeze-installed conda-token
+        conda token set CONDA_API_TOKEN
+        anaconda upload ${{ secrets.CONDA_API_TOKEN }}
           conda-bld/linux-64/demommath-*.tar.bz2
         conda config --set anaconda_upload yes
         
