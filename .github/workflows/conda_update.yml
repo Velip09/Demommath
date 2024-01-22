@@ -43,10 +43,11 @@ jobs:
         conda install -y --use-local demommath
         conda install -y anaconda-client
         conda install -y conda-verify
-        conda config --set anaconda_upload yes
         anaconda login
         env:
           ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
           ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
-        anaconda upload /usr/share/miniconda/conda-bld/linux-64/demommath-*.tar.
+        anaconda upload \
+          conda-bld/linux-64/demommath-*.tar.bz2
+        conda config --set anaconda_upload yes
         
