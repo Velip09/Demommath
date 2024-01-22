@@ -43,6 +43,8 @@ jobs:
         conda install -y --use-local demommath
         conda install -y anaconda-client
         conda install -y conda-verify
+        conda config --remove channels cond-forge
+        conda config --remove channels local
         anaconda login
         env:
           ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
