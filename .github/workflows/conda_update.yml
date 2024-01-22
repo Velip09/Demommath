@@ -52,6 +52,7 @@ jobs:
         # install anaconda for upload
         conda install -y anaconda-client
         conda install -y conda-verify
+        conda init
         conda activate /usr/share/miniconda
         conda install -c conda-forge anaconda-client
         anaconda upload --label dev noarch/*.tar.bz2
