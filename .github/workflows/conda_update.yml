@@ -42,11 +42,15 @@ jobs:
         conda install -y conda-verify
         conda build . --output-folder conda-bld
           
-    - name: Upload conda package
+    - name: conda login
+      run: |
         anaconda login
       env:
         ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
         ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
+        
+    - name: Upload Package
+      run: |
           anaconda upload \
           conda-bld/linux-64/demommath-*.tar.bz2
           conda config --set anaconda_upload yes
