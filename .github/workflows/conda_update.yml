@@ -27,10 +27,10 @@ jobs:
         activate-environment: demommath2
         environment-file: environment.yml
         channels: defaults
-    
-
+        
     - name: Install Dependencies
       run: |
+        conda activate demommath2
         conda install --yes python=$PYTHON_VERSION
         
     - name: Display Conda Configuration
