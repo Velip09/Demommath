@@ -39,14 +39,8 @@ jobs:
     - name: Build Package
       run: |
         conda install conda-build
-        conda build . --output-folder conda-bld
-        conda install -y --use-local demommath
-        conda install -y anaconda-client
+        conda build .
         conda install -y conda-verify
-        anaconda login
-      env:
-        ANACONDA_USERNAME: ${{ secrets.CONDA_USERNAME }}
-        ANACONDA_PASSWORD: ${{ secrets.CONDA_PASSWORD }}
           
     - name: Upload conda package
       if: |
