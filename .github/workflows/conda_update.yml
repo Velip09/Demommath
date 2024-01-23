@@ -39,7 +39,7 @@ jobs:
           
       - name: Install Dependencies
         run: |
-          conda install --yes python=$PYTHON_VERSION
+          conda install --yes python=3.x
           
       - name: Display Conda Configuration
         run: conda config --show
