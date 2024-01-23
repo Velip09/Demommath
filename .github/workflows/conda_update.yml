@@ -49,5 +49,5 @@ jobs:
       env:
         ANACONDA_API_TOKEN: ${{ secrets.CONDA_API_TOKEN }}
       run: |
-        # install anaconda for upload
+        conda install -c anaconda anaconda-client
         anaconda upload --label dev noarch/*.tar.bz2
