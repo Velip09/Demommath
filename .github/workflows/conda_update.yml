@@ -22,9 +22,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: conda-incubator/setup-miniconda@v3.0.1
       with:
+        miniforge-variant: Mambaforge
+        use-mamba: true
         python-version: 3.x
+        channel-priority: strict
         
     - name: Update conda and conda-build
       run: |
