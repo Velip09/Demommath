@@ -1,9 +1,9 @@
 name: Python Package CI
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - created
       
 defaults:
   run:
