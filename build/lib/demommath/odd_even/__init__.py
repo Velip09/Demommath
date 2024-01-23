@@ -1,1 +1,0 @@
-from .evod import is_odd_or_even

@@ -1,1 +1,0 @@
-from .prime_no import is_prime
