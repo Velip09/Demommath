@@ -1,0 +1,59 @@
+name: Python Package CI
+
+on:
+  release:
+    types:
+      - created
+      
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  conda:
+    name: Build (and upload)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: conda-incubator/setup-miniconda@v3.0.1
+        with:
+          miniforge-variant: Mambaforge
+          use-mamba: true
+          python-version: 3.9
+          channel-priority: strict
+        
+      - name: Update conda and conda-build
+        run: |
+          conda install -c conda-forge conda conda-build
+  
+  
+      - name: Set up Anaconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: demommath2
+          environment-file: environment.yml
+          channels: defaults
+          
+      - name: Install Dependencies
+        run: |
+          conda install --yes python=3.10
+          
+      - name: Display Conda Configuration
+        run: conda config --show
+  
+      - name: Build Package
+        run: |
+          conda install conda-build
+          conda install -y anaconda-client
+          conda install -y conda-verify
+          conda build . --output-folder conda-bld
+            
+      - name: Upload conda package
+        env:
+          ANACONDA_API_TOKEN: ${{ secrets.CONDA_API_TOKEN }}
+        run: |
+          conda install -c anaconda anaconda-client
+          anaconda upload --label main conda-bld/linux-64/*.tar.bz2
